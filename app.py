@@ -27,6 +27,7 @@ st.markdown("""
 # Pastikan URL Sheets kau diletakkan di Streamlit Secrets (gsheets_url)
 # Atau letak sementara kat sini untuk test:
 URL_SHEET = "https://docs.google.com/spreadsheets/d/14jm7YfVyw3pACKMAstFc9X23pmEafugIxTE_Kcra8ck/edit?usp=sharing"
+URL_SHEET = st.secrets["gsheets_url"]
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 
@@ -140,3 +141,4 @@ elif menu == "📁 TUTUP AKAUN":
             st.dataframe(report[['Tarikh', 'Sales', 'Profit', 'Kos']], use_container_width=True)
 
             st.metric("Total Profit Tempoh Ini", f"RM {report['Profit'].sum():.2f}")
+
